@@ -178,7 +178,13 @@
                                                                         Disposisi Kepada
                                                                     </div>
                                                                     <div class="col-8">
-                                                                        KASI PEMERINTAHAN
+                                                                        @if ($s->validasi == 1)
+                                                                            @foreach ($s->detailsm as $dsm)
+                                                                                {{ $dsm->user->jabatan }} |
+                                                                            @endforeach
+                                                                        @else
+                                                                            -
+                                                                        @endif
                                                                     </div>
                                                                     <div class="col-4">
                                                                         Tanggal Disposisi

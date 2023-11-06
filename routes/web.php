@@ -31,6 +31,7 @@ Route::get('/datasuratmasuk', [SuratMasukController::class, 'list'])->middleware
 Route::get('/validasisuratmasuk', [SuratMasukController::class, 'SMcamat'])->middleware('camat');
 Route::get('/suratmasuksekcam', [SuratMasukController::class, 'SMsekcam'])->middleware('sekcam');
 Route::get('/daftarsuratmasuk', [SuratMasukController::class, 'listSMcamat'])->middleware('camat');
+Route::get('/daftarsuratmasuksekcam', [SuratMasukController::class, 'listSMsekcam'])->middleware('sekcam');
 
 Route::post('/tambahsuratmasuk', [SuratMasukController::class, 'store'])->middleware('operator');
 Route::post('/validasisuratmasukcamat', [SuratMasukController::class, 'validasiSMcamat'])->middleware('camat');
@@ -43,6 +44,8 @@ Route::get('/datasuratkeluar', [SuratKeluarController::class, 'list'])->middlewa
 Route::get('/validasisuratkeluar', [SuratKeluarController::class, 'SKcamat'])->middleware('camat');
 Route::get('/suratkeluarsekcam', [SuratKeluarController::class, 'SKsekcam'])->middleware('sekcam');
 Route::get('/daftarsuratkeluar', [SuratKeluarController::class, 'listSKcamat'])->middleware('camat');
+Route::get('/daftarsuratkeluarsekcam', [SuratKeluarController::class, 'listSMsekcam'])->middleware('sekcam');
+
 
 Route::post('/tambahsuratkeluar', [SuratKeluarController::class, 'store'])->middleware('kasikasubag');
 Route::post('/validasiSKsekcam', [SuratKeluarController::class, 'validasiSKsekcam'])->middleware('sekcam');

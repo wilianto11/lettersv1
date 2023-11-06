@@ -116,7 +116,7 @@
                                                             <option selected="selected" disabled="disabled">--Status--
                                                             </option>
                                                             <option value="Asli">Asli</option>
-                                                            <option value="Tebusan">Tebusan</option>
+                                                            <option value="Tembusan">Tembusan</option>
                                                         </select>
                                                     </fieldset>
                                                 </div>

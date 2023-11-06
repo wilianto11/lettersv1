@@ -24,7 +24,7 @@ class SuratKeluarController extends Controller
     public function list()
     {
         return view('suratkeluar.dataSK', [
-            "sk" => SuratKeluar::where('role', 2)->get()
+            "sk" => SuratKeluar::where('role', '!=', 1)->get()
         ]);
     }
 
@@ -54,6 +54,12 @@ class SuratKeluarController extends Controller
         ]);
     }
 
+    public function listSMsekcam(){
+        return view('suratkeluar.listSKsekcam', [
+            "sk" => SuratKeluar::all()
+        ]);
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -65,20 +71,18 @@ class SuratKeluarController extends Controller
             "sifat" => "required"
         ]);
 
-        if ($request->file('pdf')) {
-            $file = $request->file('pdf');
-            $originalFileName = $file->getClientOriginalName();
-            $customFileName = str_replace(' ', '_', $originalFileName);
-            $path = $file->storeAs('suratkeluar', $customFileName);
-            $validatedData['pdf'] = $path;
+        if($request->file('pdf')){
+            $validatedData['pdf'] = $request->file('pdf')->store('suratkeluar');
         }
+
         $validatedData["kasi"] = auth()->user()->id;
         $validatedData['slug'] = Str::random(30);
         SuratKeluar::create($validatedData);
         return back()->with('success', "Surat Keluar berhasil diajukan");
     }
 
-    public function validasiSKsekcam(Request $request){
+    public function validasiSKsekcam(Request $request)
+    {
         $suratkeluar = SuratKeluar::where('id', $request->id)->first();
         $validatedData["validasisekcam"] = $request->validasisekcam;
         $validatedData["tglsekcam"] = now();
@@ -89,7 +93,8 @@ class SuratKeluarController extends Controller
         return back()->with('success', "Surat Keluar berhasil diajukan");
     }
 
-    public function disposisiSK(Request $request){
+    public function disposisiSK(Request $request)
+    {
         $suratkeluar = SuratKeluar::where('id', $request->id)->first();
         if($suratkeluar->validasisekcam == 1){
             $validatedData["role"] = 4;

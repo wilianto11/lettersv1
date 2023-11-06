@@ -24,10 +24,7 @@ return new class extends Migration
             $table->integer('lampiran');
             $table->string('status');
             $table->string('sifat');
-            $table->integer('validasisekcamat')->nullable();
-            $table->date('tglsekcamat')->nullable();
-            $table->mediumText('catsekcamat')->nullable();
-            $table->integer('validasicamat')->nullable();
+            $table->integer('validasi')->nullable();
             $table->date('tglcamat')->nullable();
             $table->mediumText('catcamat')->nullable();
             $table->date('tgldisposisi')->nullable();

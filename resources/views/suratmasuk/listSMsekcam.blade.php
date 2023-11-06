@@ -13,7 +13,6 @@
         <div class="page-content">
             <section class="row">
                 <div class="col-12">
-
                     <section class="section">
                         @if (session()->has('success'))
                             <div class="alert alert-success alert-dismissible show fade">
@@ -36,7 +35,6 @@
                                             <th>Instansi Pengirim</th>
                                             <th>Keterangan</th>
                                             <th>Detail Surat</th>
-                                            <th>Tindakan</th>
                                             <th>File Surat</th>
                                         </tr>
                                     </thead>
@@ -44,8 +42,10 @@
                                         @foreach ($sm as $s)
                                             <tr>
                                                 <td>{{ $s->nosurat }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($s->tglsurat)->translatedFormat('l, d F Y') }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($s->tglditerima)->translatedFormat('l, d F Y') }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($s->tglsurat)->translatedFormat('l, d F Y') }}
+                                                </td>
+                                                <td>{{ \Carbon\Carbon::parse($s->tglditerima)->translatedFormat('l, d F Y') }}
+                                                </td>
                                                 <td>{{ ucwords($s->instansi) }}</td>
                                                 <td>
                                                     @if ($s->role == 1)
@@ -57,16 +57,17 @@
                                                     @elseif ($s->role == 4)
                                                         Surat Masuk tidak disetujui Camat
                                                     @elseif ($s->role == 5)
-                                                        Surat Masuk telah didisposisikan
+                                                        Surat Masuk diterima oleh KASI/KASUBAG
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <button type="button" class="btn fs-3" style="border: none"
-                                                        data-bs-toggle="modal" data-bs-target="#detailsurat{{ $s->id }}">
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#detailsurat{{ $s->id }}">
                                                         <i class="bi bi-eye"></i>
                                                     </button>
                                                 </td>
-                                                <!-- modal disposisi -->
+                                                <!-- modal detail -->
                                                 <div class="modal fade" id="detailsurat{{ $s->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="exampleModalScrollableTitle"
                                                     aria-hidden="true">
@@ -208,62 +209,8 @@
                                                 </div>
 
                                                 <td style="text-align: center;">
-                                                    @if ($s->validasi == 1 && $s->role==3)
-                                                        <button type="button" class="btn btn-outline-primary"
-                                                            data-bs-toggle="modal" data-bs-target="#disposisi{{ $s->id }}">
-                                                            Disposisi
-                                                        </button>
-                                                    @else
-                                                        -
-                                                    @endif
-                                                </td>
-
-                                                <!-- modal disposisi -->
-                                                <div class="modal fade" id="disposisi{{ $s->id }}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalScrollableTitle"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-                                                        <div class="modal-content"  style="height: 250px">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                                    Disposisikan Surat Masuk Kepada</h5>
-                                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <i data-feather="x"></i>
-                                                                </button>
-                                                            </div>
-                                                            <form action="/disposisisuratmasuk" method="POST">
-                                                                @csrf
-                                                                <input type="hidden" name="id", value="{{ $s->id }}">
-                                                                <div class="modal-body">
-                                                                    <div class="d-flex align-items-ceter">
-                                                                        <div class="form-group">
-                                                                            <select class="choices form-select" multiple="multiple" style="width: 100%">
-                                                                                @foreach ($s->detailsm as $d)
-                                                                                    <option selected>{{ $d->user->jabatan }}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-light-secondary"
-                                                                        data-bs-dismiss="modal">
-                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block">Tutup</span>
-                                                                    </button>
-                                                                    <button type="submit" class="btn btn-primary ml-1">
-                                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block">Kirim</span>
-                                                                    </button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <td style="text-align: center;">
-                                                    <a href="{{ asset('storage/'.$s->pdf) }}"><i class="bi bi-download fs-4"></i></a>
+                                                    <a href="{{ asset('storage/' . $s->pdf) }}"><i
+                                                            class="bi bi-download fs-4"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -271,9 +218,7 @@
                                 </table>
                             </div>
                         </div>
-
                     </section>
-
                 </div>
             </section>
         </div>
@@ -295,5 +240,38 @@
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+
+    <script src="assets/vendors/jquery/jquery.min.js"></script>
+
+    <!-- Masukkan jQuery (pastikan Anda memiliki jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Masukkan script Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Awalnya sembunyikan elemen dengan class "unit"
+            $(".unit").hide();
+
+            // Tangkap perubahan pada select "tindakan"
+            $("#basicSelect").change(function() {
+                // Periksa apakah "Setuju" dipilih
+                if ($(this).val() == "1") {
+                    // Jika "Setuju" dipilih, tampilkan elemen "unit"
+                    $(".unit").show();
+                } else {
+                    // Jika "Tidak Setuju" atau opsi lain dipilih, sembunyikan elemen "unit"
+                    $(".unit").hide();
+                }
+            });
+        });
     </script>
 @endsection

@@ -57,6 +57,12 @@ class SuratMasukController extends Controller
         ]);
     }
 
+    public function listSMsekcam(){
+        return view('suratmasuk.listSMsekcam', [
+            "sm" => SuratMasuk::where('role', '!=', 1)->get()
+        ]);
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -71,12 +77,8 @@ class SuratMasukController extends Controller
             "sifat" => "required"
         ]);
 
-        if ($request->file('pdf')) {
-            $file = $request->file('pdf');
-            $originalFileName = $file->getClientOriginalName();
-            $customFileName = str_replace(' ', '_', $originalFileName);
-            $path = $file->storeAs('suratmasuk', $customFileName);
-            $validatedData['pdf'] = $path;
+        if($request->file('pdf')){
+            $validatedData['pdf'] = $request->file('pdf')->store('suratmasuk');
         }
 
         $validatedData['slug'] = Str::random(30);
@@ -99,10 +101,6 @@ class SuratMasukController extends Controller
         $validatedData["tglcamat"] = now();
         $validatedData["role"] = 2;
 
-        if($request->validasi == 1){
-            $validatedData["tgldisposisi"] = now();
-        }
-
         $suratmasuk->update($validatedData);
         return back()->with('success', "Perubahan berhasil disimpan");
     }
@@ -120,9 +118,11 @@ class SuratMasukController extends Controller
         return back()->with('success', "Perubahan berhasil disimpan");
     }
 
-    public function disposisiSM(Request $request){
+    public function disposisiSM(Request $request)
+    {
         $suratmasuk = SuratMasuk::where('id', $request->id)->first();
         $validatedData["role"] = 5;
+        $validatedData["tgldisposisi"] = now();
         $suratmasuk->update($validatedData);
         return back()->with('success', "Perubahan berhasil disimpan");
     }

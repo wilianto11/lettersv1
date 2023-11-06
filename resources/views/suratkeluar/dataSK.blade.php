@@ -236,19 +236,23 @@
                                                 </div>
 
                                                 <td style="text-align: center;">
-                                                    <form action="/disposisisuratkeluar" method="POST">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $s->id }}">
-                                                        @if ($s->validasisekcam == 1)
-                                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                                Disposisikan ke Camat
-                                                            </button>
-                                                        @else
-                                                            <button type="submit" class="btn btn-primary btn-sm">
-                                                                Disposisikan ke {{ $s->user->jabatan }}
-                                                            </button>
-                                                        @endif
-                                                    </form>
+                                                    @if ($s->role == 2)
+                                                        <form action="/disposisisuratkeluar" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="id" value="{{ $s->id }}">
+                                                            @if ($s->validasisekcam == 1)
+                                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                                    Disposisikan ke Camat
+                                                                </button>
+                                                            @else
+                                                                <button type="submit" class="btn btn-primary btn-sm">
+                                                                    Disposisikan ke {{ $s->user->jabatan }}
+                                                                </button>
+                                                            @endif
+                                                        </form>
+                                                    @else
+                                                        -
+                                                    @endif
                                                 </td>
 
                                                 <td style="text-align: center;">
