@@ -17,14 +17,14 @@ class SuratKeluarController extends Controller
     public function index()
     {
         return view('suratkeluar.index', [
-            "sk" => SuratKeluar::all()
+            "sk" => SuratKeluar::orderBy('created_at', 'desc')->get()
         ]);
     }
 
     public function list()
     {
         return view('suratkeluar.dataSK', [
-            "sk" => SuratKeluar::where('role', '!=', 1)->get()
+            "sk" => SuratKeluar::where('role', '!=', 1)->latest()->get()
         ]);
     }
 
@@ -36,28 +36,28 @@ class SuratKeluarController extends Controller
     public function SKcamat()
     {
         return view('suratkeluar.SKcamat', [
-            "sk" => SuratKeluar::where('role', 4)->get()
+            "sk" => SuratKeluar::where('role', 4)->latest()->get()
         ]);
     }
 
     public function SKsekcam()
     {
         return view('suratkeluar.SKsekcam', [
-            "sk" => SuratKeluar::where('role', 1)->get()
+            "sk" => SuratKeluar::where('role', 1)->latest()->get()
         ]);
     }
 
     public function listSKcamat()
     {
         return view('suratkeluar.listSKcamat', [
-            "sk" => SuratKeluar::where('role', 5)->orwhere('role', 6)->get()
+            "sk" => SuratKeluar::where('role', 5)->orwhere('role', 6)->orwhere('role', 4)->latest()->get()
         ]);
     }
 
     public function listSKsekcam()
     {
         return view('suratkeluar.listSKsekcam', [
-            "sk" => SuratKeluar::all()
+            "sk" => SuratKeluar::orderBy('created_at', 'desc')->get()
         ]);
     }
 

@@ -152,7 +152,7 @@
                                                                         </div>
                                                                         <div class="col-8">
                                                                             @if ($d->sm->tglcamat)
-                                                                                {{ \Carbon\Carbon::parse($d->sm->tglsurat)->translatedFormat('l, d F Y') }}
+                                                                                {{ \Carbon\Carbon::parse($d->sm->tgcamat)->translatedFormat('l, d F Y') }}
                                                                             @else
                                                                                 -
                                                                             @endif

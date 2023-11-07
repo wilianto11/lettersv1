@@ -58,9 +58,9 @@
                                                     @elseif ($s->role == 4)
                                                         Sedang diproses Camat
                                                     @elseif ($s->role == 5)
-                                                        Surat Keluar disetuji oleh Camat
+                                                        Surat Keluar disetujui oleh Camat
                                                     @elseif ($s->role == 6)
-                                                        Surat Keluar tidak disetuji oleh Camat
+                                                        Surat Keluar tidak disetujui oleh Camat
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
