@@ -44,7 +44,7 @@ Route::get('/datasuratkeluar', [SuratKeluarController::class, 'list'])->middlewa
 Route::get('/validasisuratkeluar', [SuratKeluarController::class, 'SKcamat'])->middleware('camat');
 Route::get('/suratkeluarsekcam', [SuratKeluarController::class, 'SKsekcam'])->middleware('sekcam');
 Route::get('/daftarsuratkeluar', [SuratKeluarController::class, 'listSKcamat'])->middleware('camat');
-Route::get('/daftarsuratkeluarsekcam', [SuratKeluarController::class, 'listSMsekcam'])->middleware('sekcam');
+Route::get('/daftarsuratkeluarsekcam', [SuratKeluarController::class, 'listSKsekcam'])->middleware('sekcam');
 
 
 Route::post('/tambahsuratkeluar', [SuratKeluarController::class, 'store'])->middleware('kasikasubag');

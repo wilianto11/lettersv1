@@ -54,7 +54,8 @@ class SuratKeluarController extends Controller
         ]);
     }
 
-    public function listSMsekcam(){
+    public function listSKsekcam()
+    {
         return view('suratkeluar.listSKsekcam', [
             "sk" => SuratKeluar::all()
         ]);

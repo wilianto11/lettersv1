@@ -8,7 +8,7 @@
         </header>
 
         <div class="page-heading">
-            <h3>Data Surat Masuk</h3>
+            <h3>Validasi Surat Masuk</h3>
         </div>
         <div class="page-content">
             <section class="row">
