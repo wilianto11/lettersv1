@@ -84,7 +84,7 @@
                                                     <div class="form-group position-relative has-icon-left">
                                                         <input type="text" name="perihal"
                                                             class="form-control form-control-lg"
-                                                            placeholder="Input with icon left"
+                                                            placeholder="Masukkan Judul atau Perihal Surat"
                                                             value="{{ old('perihal') }}" required>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-file-earmark-medical"></i>
