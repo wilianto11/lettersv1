@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIAP</title>
+    <title>SIAAP</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <small style="font-size: 24px; color: #25396f; font-weight: 900">Masuk</small>
-                    <p class="auth-subtitle mb-2" style="font-size: 15px">Sistem Informasi Aplikasi Perkantoran</p>
+                    <p class="auth-subtitle mb-2" style="font-size: 15px">Sistem Aplikasi Administrasi Perkantoran</p>
 
                     @if (session()->has('loginError'))
                         <div class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">

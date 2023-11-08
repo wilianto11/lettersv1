@@ -299,7 +299,7 @@
                                                 </div>
 
                                                 <td style="text-align: center;">
-                                                    <a href="{{ asset('storage/' . $s->pdf) }}"><i
+                                                    <a href="{{ asset('storage/' . $s->pdf) }}" target="_blank"><i
                                                             class="bi bi-download fs-4"></i></a>
                                                 </td>
                                             </tr>
@@ -318,7 +318,7 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>2023 &copy; Sistem Informasi Aplikasi Perkantoran</p>
+                    <p>2023 &copy; Sistem Aplikasi Administrasi Perkantoran</p>
                 </div>
             </div>
         </footer>
