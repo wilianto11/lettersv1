@@ -54,7 +54,7 @@
                                                     @elseif ($s->role == 2)
                                                         Dalam Pengecekan Sekretaris Camat
                                                     @elseif ($s->role == 3)
-                                                        Menunggu disposisi Operator
+                                                        Menunggu tindakan Operator
                                                     @elseif ($s->role == 4)
                                                         Surat Masuk tidak disetujui Camat
                                                     @elseif ($s->role == 5)
@@ -92,6 +92,12 @@
                                                                     </div>
                                                                     <div class="col-8">
                                                                         {{ $s->nosurat }}
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        No. Registrasi
+                                                                    </div>
+                                                                    <div class="col-8">
+                                                                        {{ $s->noregis }}
                                                                     </div>
                                                                     <div class="col-4">
                                                                         Instansi Pengirim
@@ -288,7 +294,7 @@
 
                                                 <td style="text-align: center;">
                                                     <a href="{{ asset('storage/' . $s->pdf) }}" target="_blank"><i
-                                                            class="bi bi-download fs-4"></i></a>
+                                                        class="bi bi-file-earmark-medical fs-4"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

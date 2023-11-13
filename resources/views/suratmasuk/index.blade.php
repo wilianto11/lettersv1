@@ -48,7 +48,7 @@
                                                             @elseif ($d->sm->role == 2)
                                                                 Dalam Pengecekan Sekretaris Camat
                                                             @elseif ($d->sm->role == 3)
-                                                                Menunggu disposisi Operator
+                                                                Menunggu tindakan Operator
                                                             @elseif ($d->sm->role == 4)
                                                                 Surat Masuk tidak disetujui Camat
                                                             @elseif ($d->sm->role == 5)
@@ -85,6 +85,12 @@
                                                                         </div>
                                                                         <div class="col-8">
                                                                             {{ $d->sm->nosurat }}
+                                                                        </div>
+                                                                        <div class="col-4">
+                                                                            No. Registrasi
+                                                                        </div>
+                                                                        <div class="col-8">
+                                                                            {{ $s->noregis }}
                                                                         </div>
                                                                         <div class="col-4">
                                                                             Instansi Pengirim
@@ -203,7 +209,7 @@
                                                     </div>
                                                     <td style="text-align: center;">
                                                         <a href="{{ asset('storage/' . $d->sm->pdf) }}" target="_blank"><i
-                                                                class="bi bi-download fs-4"></i></a>
+                                                            class="bi bi-file-earmark-medical fs-4"></i></a>
                                                     </td>
                                                 </tr>
                                             @endif

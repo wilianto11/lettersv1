@@ -32,29 +32,41 @@
                                         @csrf
                                         <div class="form-body">
                                             <div class="row">
-                                                <div class="col-lg-9">
-                                                    <h6>NO SURAT</h6>
+                                                <div class="col-lg-4">
+                                                    <h6>NO JENIS</h6>
                                                     <div class="form-group position-relative has-icon-left">
                                                         <input type="text" class="form-control form-control-lg"
-                                                            placeholder="Masukkan No Surat" name="nosurat"
-                                                            value="{{ old('nosurat') }}" autofocus required>
+                                                            placeholder="No Jenis" name="nojenis"
+                                                            value="{{ old('nojenis') }}" autofocus required>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-bullseye"></i>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-3">
-                                                    <h6>TGL. SURAT</h6>
+                                                <div class="col-lg-4">
+                                                    <h6>NO INSTANSI</h6>
                                                     <div class="form-group position-relative has-icon-left">
-                                                        <input type="date" class="form-control form-control-lg "
-                                                            max="{{ date('Y-m-d') }}" name="tglsurat"
-                                                            value="{{ old('tglsurat') }}" required>
+                                                        <input type="text" class="form-control form-control-lg"
+                                                            placeholder="Masukkan No Surat" name="noinstansi"
+                                                            value="{{ 105,old('noinstansi') }}" autofocus required>
                                                         <div class="form-control-icon">
-                                                            <i class="bi bi-calendar3"></i>
+                                                            <i class="bi bi-bullseye"></i>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 my-3">
+                                                <div class="col-lg-4">
+                                                    <h6>NO TAHUN</h6>
+                                                    <div class="form-group position-relative has-icon-left">
+                                                        <input type="text" class="form-control form-control-lg"
+                                                            placeholder="Masukkan No Surat" name="notahun"
+                                                            value="{{ now()->year,old('notahun') }}" autofocus required>
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-bullseye"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-9 my-3">
                                                     <h6>JUDUL atau PERIHAL SURAT</h6>
                                                     <div class="form-group position-relative has-icon-left">
                                                         <input type="text" class="form-control form-control-lg"
@@ -62,6 +74,17 @@
                                                             value="{{ old('perihal') }}" required>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-file-earmark-medical"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-3 my-3">
+                                                    <h6>TGL. SURAT</h6>
+                                                    <div class="form-group position-relative has-icon-left">
+                                                        <input type="date" class="form-control form-control-lg "
+                                                            max="{{ date('Y-m-d') }}" name="tglsurat"
+                                                            value="{{ old('tglsurat') }}" required>
+                                                        <div class="form-control-icon">
+                                                            <i class="bi bi-calendar3"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -88,9 +111,10 @@
                                                             name="sifat" value="{{ old('sifat') }}"required>
                                                             <option selected="selected" disabled="disabled">--Sifat--
                                                             </option>
-                                                            <option value="Segera">Segera</option>
-                                                            <option value="Sangat Segera">Sangat Segera</option>
-                                                            <option value="Kilat">Kilat</option>
+                                                            <option value="Biasa">Biasa</option>
+                                                            <option value="Penting">Penting</option>
+                                                            <option value="Sangat Penting">Sangat Penting</option>
+                                                            <option value="Rahasia">Rahasia</option>
                                                         </select>
                                                     </fieldset>
                                                 </div>

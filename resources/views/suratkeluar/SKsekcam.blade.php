@@ -51,7 +51,7 @@
                                                     @if ($s->role == 1)
                                                         Sedang diproses Sekretaris Camat
                                                     @elseif ($s->role == 2)
-                                                        Menunggu disposisi Operator
+                                                        Menunggu tindakan Operator
                                                     @elseif ($s->role == 3)
                                                         Surat Keluar tidak disetujui oleh Sekretaris Camat
                                                     @elseif ($s->role == 4)
@@ -60,11 +60,14 @@
                                                         Surat Keluar disetujui oleh Camat
                                                     @elseif ($s->role == 6)
                                                         Surat Keluar tidak disetujui oleh Camat
+                                                    @elseif ($s->role == 7)
+                                                        Surat Keluar didisposisikan Camat ke Operator
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <button type="button" class="btn fs-3" style="border: none"
-                                                        data-bs-toggle="modal" data-bs-target="#detailsurat{{ $s->id }}">
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#detailsurat{{ $s->id }}">
                                                         <i class="bi bi-eye"></i>
                                                     </button>
                                                 </td>
@@ -236,34 +239,40 @@
 
                                                 <td style="text-align: center;">
                                                     <button type="button" class="btn btn-outline-primary"
-                                                        data-bs-toggle="modal" data-bs-target="#validasi{{ $s->id }}">
-                                                        Validasi
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#validasi{{ $s->id }}">
+                                                        Tindak Lanjut
                                                     </button>
                                                 </td>
                                                 <!-- modal disposisi -->
                                                 <div class="modal fade" id="validasi{{ $s->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="exampleModalScrollableTitle"
                                                     aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-                                                        <div class="modal-content"  style="height: 530px;">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                        role="document">
+                                                        <div class="modal-content" style="height: 530px;">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalScrollableTitle">
                                                                     Lakukan Tindakan</h5>
-                                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                                    aria-label="Close">
+                                                                <button type="button" class="close"
+                                                                    data-bs-dismiss="modal" aria-label="Close">
                                                                     <i data-feather="x"></i>
                                                                 </button>
                                                             </div>
                                                             <form action="/validasiSKsekcam" method="POST">
                                                                 @csrf
-                                                                <input type="hidden" name="id" value="{{ $s->id }}">
+                                                                <input type="hidden" name="id"
+                                                                    value="{{ $s->id }}">
                                                                 <div class="modal-body">
                                                                     <div class="d-flex align-items-ceter">
                                                                         <fieldset class="form-group" style="width: 100%">
-                                                                            <select class="form-select" id="basicSelect" name="validasisekcam" required>
-                                                                                <option selected="selected" disabled="disabled" >--Pilih Tindakan--</option>
-                                                                                <option value="1">Setuju</option>
-                                                                                <option value="2">Tidak Setuju</option>
+                                                                            <select class="form-select" id="basicSelect"
+                                                                                name="validasisekcam" required>
+                                                                                <option selected="selected"
+                                                                                    disabled="disabled">--Pilih Tindakan--
+                                                                                </option>
+                                                                                <option value="1">ACC</option>
+                                                                                <option value="2">Non ACC</option>
                                                                             </select>
                                                                         </fieldset>
                                                                     </div>
@@ -292,7 +301,7 @@
 
                                                 <td style="text-align: center;">
                                                     <a href="{{ asset('storage/' . $s->pdf) }}" target="_blank"><i
-                                                            class="bi bi-download fs-4"></i></a>
+                                                            class="bi bi-file-earmark-medical fs-4"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -339,8 +348,8 @@
             hint: {
                 words: ['apple', 'orange', 'watermelon', 'lemon'],
                 match: /\b(\w{1,})$/,
-                search: function (keyword, callback) {
-                    callback($.grep(this.words, function (item) {
+                search: function(keyword, callback) {
+                    callback($.grep(this.words, function(item) {
                         return item.indexOf(keyword) === 0;
                     }));
                 }

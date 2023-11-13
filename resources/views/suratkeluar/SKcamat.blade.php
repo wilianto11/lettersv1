@@ -51,7 +51,7 @@
                                                     @if ($s->role == 1)
                                                         Sedang diproses Sekretaris Camat
                                                     @elseif ($s->role == 2)
-                                                        Menunggu disposisi Operator
+                                                        Menunggu tindakan Operator
                                                     @elseif ($s->role == 3)
                                                         Surat Keluar tidak disetujui oleh Sekretaris Camat
                                                     @elseif ($s->role == 4)
@@ -60,6 +60,8 @@
                                                         Surat Keluar disetujui oleh Camat
                                                     @elseif ($s->role == 6)
                                                         Surat Keluar tidak disetujui oleh Camat
+                                                    @elseif ($s->role == 7)
+                                                        Surat Keluar didisposisikan Camat ke Operator
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
@@ -300,7 +302,7 @@
 
                                                 <td style="text-align: center;">
                                                     <a href="{{ asset('storage/' . $s->pdf) }}" target="_blank"><i
-                                                            class="bi bi-download fs-4"></i></a>
+                                                            class="bi bi-file-earmark-medical fs-4"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

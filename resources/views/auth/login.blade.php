@@ -16,12 +16,12 @@
 <body>
     <div id="auth">
         <div class="row h-100">
-            <div class="col-lg-5 col-12">
+            <div class="col-lg-6 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
                         <div class="row">
                             <div class="col-4">
-                                <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo"></a>
+                                <a href="/"><img src="assets/images/logo/logo.png" alt="Logo"></a>
                             </div>
                             <div class="col-8 mt-2">
                                 <small style="font-size: 35px; color: black; font-weight: 800;">Kecamatan</small><br>
@@ -59,9 +59,11 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-7 d-none d-lg-block">
+            <div class="col-lg-6 d-none d-lg-block">
                 <div id="auth-right">
-
+                    <div class="gambar">
+                        <img class="img-fluid" style="height: 37.2rem" src="assets/images/bg/purwo.jpeg" alt="">
+                    </div>
                 </div>
             </div>
         </div>

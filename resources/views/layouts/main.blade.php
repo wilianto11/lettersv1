@@ -108,7 +108,7 @@
                                         $count = $sm->count() + $sk->count();
                                     @endphp
                                     @if ($count)
-                                        <i style="color: #0d8c2b" class="bi bi-check-circle-fill"></i>
+                                        <i style="color: #cc0f0f" class="bi bi-info-circle-fill"></i>
                                     @endif
                                 </a>
                                 <ul class="submenu ">
@@ -156,7 +156,7 @@
                                         $count = $sm->count() + $sk->count();
                                     @endphp
                                     @if ($count)
-                                        <i style="color: #0d8c2b" class="bi bi-check-circle-fill"></i>
+                                        <i style="color: #cc0f0f" class="bi bi-info-circle-fill"></i>
                                     @endif
                                 </a>
                                 <ul class="submenu ">
@@ -196,7 +196,7 @@
                                         $count = $sm->count() + $sk->count();
                                     @endphp
                                     @if ($count)
-                                        <i style="color: #0d8c2b" class="bi bi-check-circle-fill"></i>
+                                        <i style="color: #cc0f0f" class="bi bi-info-circle-fill"></i>
                                     @endif
                                 </a>
                                 <ul class="submenu ">

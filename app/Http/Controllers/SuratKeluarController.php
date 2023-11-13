@@ -50,7 +50,7 @@ class SuratKeluarController extends Controller
     public function listSKcamat()
     {
         return view('suratkeluar.listSKcamat', [
-            "sk" => SuratKeluar::where('role', 5)->orwhere('role', 6)->orwhere('role', 4)->latest()->get()
+            "sk" => SuratKeluar::where('role', 4)->orwhere('role', 5)->orwhere('role', 6)->orwhere('role', 7)->latest()->get()
         ]);
     }
 
@@ -64,7 +64,9 @@ class SuratKeluarController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "nosurat" => "required",
+            "nojenis" => "required",
+            "noinstansi" => "required",
+            "notahun" => "required",
             "pdf" => "mimes:pdf|file|max:10240",
             "tglsurat" => "required",
             "perihal" => "required",
@@ -76,6 +78,7 @@ class SuratKeluarController extends Controller
             $validatedData['pdf'] = $request->file('pdf')->store('suratkeluar');
         }
 
+        $validatedData["nosurat"] = $request->nojenis."/".$request->noinstansi."/".$request->notahun;
         $validatedData["kasi"] = auth()->user()->id;
         $validatedData['slug'] = Str::random(30);
         SuratKeluar::create($validatedData);
@@ -113,13 +116,21 @@ class SuratKeluarController extends Controller
         $validatedData["tglcamat"] = now();
         $validatedData["catcamat"] = $request->catcamat;
         if($request->validasicamat == 1){
-            $validatedData["role"] = 5;
+            $validatedData["role"] = 7;
         }else{
             $validatedData["role"] = 6;
         }
 
         $suratkeluar->update($validatedData);
         return back()->with('success', "Surat Keluar berhasil diajukan");
+    }
+
+    public function submitnoregis(Request $request){
+        $suratkeluar = SuratKeluar::where('id', $request->id)->first();
+        $validatedData["nosurat"] = $request->nosurat;
+        $validatedData["role"] = 5;
+        $suratkeluar->update($validatedData);
+        return back()->with('success', "No Surat Keluar berhasil diperbarui");
     }
 }
 

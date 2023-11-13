@@ -80,6 +80,7 @@ class SuratMasukController extends Controller
             $validatedData['pdf'] = $request->file('pdf')->store('suratmasuk');
         }
 
+        $validatedData["noregis"] = $request->noregis;
         $validatedData['slug'] = Str::random(30);
         SuratMasuk::create($validatedData);
         return back()->with('success', "Surat Masuk berhasil ditambahkan");
