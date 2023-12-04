@@ -90,7 +90,7 @@
                                                                             No. Registrasi
                                                                         </div>
                                                                         <div class="col-8">
-                                                                            {{ $s->noregis }}
+                                                                            {{ $d->sm->noregis }}
                                                                         </div>
                                                                         <div class="col-4">
                                                                             Instansi Pengirim
