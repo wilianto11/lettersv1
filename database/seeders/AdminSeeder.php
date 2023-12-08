@@ -11,8 +11,8 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            "name" => "Administrator",
-            "nip" => "197809152009011111",
+            "name" => "Wardi",
+            "nip" => "197505182014061001",
             "password" => bcrypt("purwosari"),
             "roleid" => 1,
             "jabatan" => "Admin"

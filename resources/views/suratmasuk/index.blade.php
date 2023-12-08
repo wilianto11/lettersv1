@@ -43,17 +43,7 @@
                                                         </td>
                                                         <td>{{ ucwords($d->sm->instansi) }}</td>
                                                         <td>
-                                                            @if ($d->sm->role == 1)
-                                                                Sedang diproses Camat
-                                                            @elseif ($d->sm->role == 2)
-                                                                Dalam Pengecekan Sekretaris Camat
-                                                            @elseif ($d->sm->role == 3)
-                                                                Menunggu tindakan Operator
-                                                            @elseif ($d->sm->role == 4)
-                                                                Surat Masuk tidak disetujui Camat
-                                                            @elseif ($d->sm->role == 5)
-                                                                Surat Masuk diterima oleh KASI/KASUBAG
-                                                            @endif
+                                                            Surat Masuk diterima oleh {{ $d->user->jabatan }}
                                                         </td>
                                                     <td style="text-align: center;">
                                                         <button type="button" class="btn fs-3" style="border: none"

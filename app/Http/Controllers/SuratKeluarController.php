@@ -16,8 +16,15 @@ class SuratKeluarController extends Controller
 
     public function index()
     {
+        $sk = SuratKeluar::where('kasi', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+        foreach($sk as $s){
+            if($s->read == 1){
+                $validatedData["read"] = 0;
+                $s->update($validatedData);
+            }
+        }
         return view('suratkeluar.index', [
-            "sk" => SuratKeluar::orderBy('created_at', 'desc')->get()
+            "sk" => $sk
         ]);
     }
 
@@ -104,6 +111,7 @@ class SuratKeluarController extends Controller
             $validatedData["role"] = 4;
         }else{
             $validatedData["role"] = 3;
+            $validatedData["read"] = 1;
         }
         $validatedData["tgldisposisi"] = now();
         $suratkeluar->update($validatedData);
@@ -119,6 +127,7 @@ class SuratKeluarController extends Controller
             $validatedData["role"] = 7;
         }else{
             $validatedData["role"] = 6;
+            $validatedData["read"] = 1;
         }
 
         $suratkeluar->update($validatedData);
@@ -129,6 +138,7 @@ class SuratKeluarController extends Controller
         $suratkeluar = SuratKeluar::where('id', $request->id)->first();
         $validatedData["nosurat"] = $request->nosurat;
         $validatedData["role"] = 5;
+        $validatedData["read"] = 1;
         $suratkeluar->update($validatedData);
         return back()->with('success', "No Surat Keluar berhasil diperbarui");
     }

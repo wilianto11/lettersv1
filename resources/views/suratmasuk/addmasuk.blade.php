@@ -149,6 +149,7 @@
                                                             <option value="Biasa">Biasa</option>
                                                             <option value="Penting">Penting</option>
                                                             <option value="Sangat Penting">Sangat Penting</option>
+                                                            <option value="Segera">Segera</option>
                                                             <option value="Rahasia">Rahasia</option>
                                                         </select>
                                                     </fieldset>

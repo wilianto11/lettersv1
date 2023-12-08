@@ -58,7 +58,16 @@
                                                     @elseif ($s->role == 4)
                                                         Surat Masuk tidak disetujui Camat
                                                     @elseif ($s->role == 5)
-                                                        Surat Masuk diterima oleh KASI/KASUBAG
+                                                        Surat Masuk diterima oleh
+                                                        @if ($s->detailsm->count() > 1)
+                                                            @foreach ($s->detailsm as $dsm)
+                                                                {{ $dsm->user->jabatan }} |
+                                                            @endforeach
+                                                        @else
+                                                            @foreach ($s->detailsm as $dsm)
+                                                                {{ $dsm->user->jabatan }}
+                                                            @endforeach
+                                                        @endif
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
@@ -261,7 +270,7 @@
                                                                     <div class="form-group unit" style="display: none;">
                                                                         <label for="">Pilih Unit</label>
                                                                         <select class="select2" style="width: 100%"
-                                                                            multiple="multiple" name="kasi[]">
+                                                                            multiple="multiple" name="kasi[]" required>
                                                                             @foreach ($pegawai as $peg)
                                                                                 <option value="{{ $peg->id }}">
                                                                                     {{ $peg->jabatan }}</option>
@@ -294,7 +303,7 @@
 
                                                 <td style="text-align: center;">
                                                     <a href="{{ asset('storage/' . $s->pdf) }}" target="_blank"><i
-                                                        class="bi bi-file-earmark-medical fs-4"></i></a>
+                                                            class="bi bi-file-earmark-medical fs-4"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
