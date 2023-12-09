@@ -34,7 +34,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($dsm as $d)
-                                            @if ($d->sm->where('role', 5))
+                                            @if ($d->sm->role == 5)
                                                 <tr>
                                                     <td>{{ $d->sm->nosurat }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($d->sm->tglsurat)->translatedFormat('l, d F Y') }}
