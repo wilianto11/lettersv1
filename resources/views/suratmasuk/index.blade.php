@@ -135,16 +135,16 @@
                                                                             style="font-style: oblique; font-weight: 700">
                                                                             @if ($d->sm->validasi)
                                                                                 @if ($d->sm->validasi == 1)
-                                                                                    Disetujui oleh Camat
+                                                                                    Disetujui oleh Kabag
                                                                                 @else
-                                                                                    Tidak disetujui oleh Camat
+                                                                                    Tidak disetujui oleh Kabag
                                                                                 @endif
                                                                             @else
                                                                                 -
                                                                             @endif
                                                                         </div>
                                                                         <div class="col-4">
-                                                                            Tanggal Tindakan Camat
+                                                                            Tanggal Tindakan Kabag
                                                                         </div>
                                                                         <div class="col-8">
                                                                             @if ($d->sm->tglcamat)
@@ -154,7 +154,7 @@
                                                                             @endif
                                                                         </div>
                                                                         <div class="col-4">
-                                                                            Catatan Camat
+                                                                            Catatan Kabag
                                                                         </div>
                                                                         <div class="col-8">
                                                                             @if ($d->sm->catcamat)
@@ -218,7 +218,9 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>2023 &copy; Sistem Aplikasi Administrasi Perkantoran</p>
+                    <p>{{ date("Y") }} &copy;
+                        <a href="https://wilianto11.github.io/wilianto.github.io/">WILIANTO</a>
+                    </p>
                 </div>
             </div>
         </footer>

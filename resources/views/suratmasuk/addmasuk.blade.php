@@ -180,7 +180,9 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>2023 &copy; Sistem Aplikasi Administrasi Perkantoran</p>
+                    <p>{{ date("Y") }} &copy;
+                        <a href="https://wilianto11.github.io/wilianto.github.io/">WILIANTO</a>
+                    </p>
                 </div>
             </div>
         </footer>

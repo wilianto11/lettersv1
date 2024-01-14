@@ -52,15 +52,12 @@
                                                         style="background-color: white" id="roleSelect">
                                                         <option selected="selected" disabled="disabled">Pilih Jabatan
                                                         </option>
-                                                        <option value="2">Camat</option>
-                                                        <option value="3">Sekretaris Camat</option>
-                                                        <option value="4">Operator</option>
-                                                        <option value="5">KASI PEMERINTAHAN</option>
-                                                        <option value="5">KASI KESRA</option>
-                                                        <option value="5">KASI PMD</option>
-                                                        <option value="5">KASI TRANTIB</option>
-                                                        <option value="5">KASUBAG PROGLAP</option>
-                                                        <option value="5">KASUBAG UKK</option>
+                                                        <option value="2">KEPALA BAGIAN HUKUM</option>
+                                                        <option value="3">SEKRETARIS</option>
+                                                        <option value="4">OPERATOR</option>
+                                                        <option value="5">KASUBAG PENGKAJIAN HUKUM</option>
+                                                        <option value="5">KASUBAG PERUNDANG UNDANGAN</option>
+                                                        <option value="5">KASUBAG BANTUAN HUKUM</option>
                                                     </select>
                                                     <input type="hidden" name="jabatan" id="jabatanHidden"
                                                         value="">
@@ -86,7 +83,9 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>2023 &copy; Sistem Aplikasi Administrasi Perkantoran</p>
+                    <p>{{ date("Y") }} &copy;
+                        <a href="https://wilianto11.github.io/wilianto.github.io/">WILIANTO</a>
+                    </p>
                 </div>
                 {{-- <div class="float-end">
                     <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a

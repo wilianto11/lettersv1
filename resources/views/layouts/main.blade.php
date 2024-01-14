@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | SIAAP</title>
+    <title>Dashboard | SISMSK</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/logo/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/logo/logo.jpg" type="image/x-icon">
 
     @yield('css')
     {{-- tambahan page lain --}}
@@ -36,13 +36,13 @@
                             <div class="row">
                                 <div class="col-4">
                                     <a href="/dashboard">
-                                        <img src="assets/images/logo/logo.png" alt="Logo" srcset="">
+                                        <img src="assets/images/logo/logo.jpg" alt="Logo" srcset="">
                                     </a>
                                 </div>
                                 <div class="col-8">
-                                    <small style="font-size: 15px; color: black; font-weight: 800">Kecamatan</small><br>
-                                    <p style="font-size: 28px; margin-top: -20px; color: black; font-weight: 800">
-                                        Purwosari</p>
+                                    <small style="font-size: 15px; color: black; font-weight: 800">Bagian Hukum</small><br>
+                                    <p style="font-size: 15px; margin-top: -15px; color: black; font-weight: 800">
+                                        Kabupaten Bekasi</p>
                                 </div>
                             </div>
                         </div>

@@ -25,7 +25,7 @@ class DashboardController extends Controller
             "jabatan" => "required"
         ]);
 
-        $validatedData["password"] = bcrypt('purwosari');
+        $validatedData["password"] = bcrypt('bekasi2024');
         $pegawai = User::create($validatedData);
         return back()->with('success', "Pegawai baru berhasil ditambahkan");
     }

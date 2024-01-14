@@ -50,13 +50,13 @@
                                                 <td>{{ ucwords($s->instansi) }}</td>
                                                 <td>
                                                     @if ($s->role == 1)
-                                                        Sedang diproses Camat
+                                                        Sedang diproses Kabag
                                                     @elseif ($s->role == 2)
-                                                        Dalam Pengecekan Sekretaris Camat
+                                                        Dalam Pengecekan Sekretaris
                                                     @elseif ($s->role == 3)
                                                         Menunggu tindakan Operator
                                                     @elseif ($s->role == 4)
-                                                        Surat Masuk tidak disetujui Camat
+                                                        Surat Masuk tidak disetujui Kabag
                                                     @elseif ($s->role == 5)
                                                         Surat Masuk diterima oleh
                                                         @if ($s->detailsm->count() > 1)
@@ -161,16 +161,16 @@
                                                                         style="font-style: oblique; font-weight: 700">
                                                                         @if ($s->validasi)
                                                                             @if ($s->validasi == 1)
-                                                                                Disetujui oleh Camat
+                                                                                Disetujui oleh Kabag
                                                                             @else
-                                                                                Tidak disetujui oleh Camat
+                                                                                Tidak disetujui oleh Kabag
                                                                             @endif
                                                                         @else
                                                                             -
                                                                         @endif
                                                                     </div>
                                                                     <div class="col-4">
-                                                                        Tanggal Tindakan Camat
+                                                                        Tanggal Tindakan Kabag
                                                                     </div>
                                                                     <div class="col-8">
                                                                         @if ($s->tglcamat)
@@ -180,7 +180,7 @@
                                                                         @endif
                                                                     </div>
                                                                     <div class="col-4">
-                                                                        Catatan Camat
+                                                                        Catatan Kabag
                                                                     </div>
                                                                     <div class="col-8">
                                                                         @if ($s->catcamat)
@@ -279,7 +279,7 @@
                                                                     </div>
 
 
-                                                                    <h5 class="mt-2">Catatan Camat</h5>
+                                                                    <h5 class="mt-2">Catatan Kabag</h5>
                                                                     <div class="form-group with-title mb-3">
                                                                         <textarea class="form-control" id="exampleFormControlTextarea1" name="catcamat" rows="3"></textarea>
                                                                         <label>Catatan</label>
@@ -319,7 +319,9 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>2023 &copy; Sistem Aplikasi Administrasi Perkantoran</p>
+                    <p>{{ date("Y") }} &copy;
+                        <a href="https://wilianto11.github.io/wilianto.github.io/">WILIANTO</a>
+                    </p>
                 </div>
             </div>
         </footer>

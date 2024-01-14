@@ -1,10 +1,20 @@
+<style>
+.rotate img{
+-webkit-transition: -webkit-transform 1.1s ease-in-out;
+transition: transform 1.1s ease-in-out;
+}.rotate img:hover{
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIAAP</title>
+    <title>SISMSK</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -21,16 +31,16 @@
                     <div class="auth-logo">
                         <div class="row">
                             <div class="col-4">
-                                <a href="/"><img src="assets/images/logo/logo.png" alt="Logo"></a>
+                                <a href="/"><img src="assets/images/logo/logo.jpg" alt="Logo"></a>
                             </div>
                             <div class="col-8 mt-2">
-                                <small style="font-size: 35px; color: black; font-weight: 800;">Kecamatan</small><br>
-                                <p style="font-size: 50px; margin-top: -20px; color: black; font-weight: 800">Purwosari</p>
+                                <small style="font-size: 35px; color: black; font-weight: 800;">Kabupaten Bekasi</small><br>
+                                <p style="font-size: 50px; margin-top: -20px; color: black; font-weight: 600">Bagian Hukum</p>
                             </div>
                         </div>
                     </div>
                     <small style="font-size: 24px; color: #25396f; font-weight: 900">Masuk</small>
-                    <p class="auth-subtitle mb-2" style="font-size: 15px">Sistem Aplikasi Administrasi Perkantoran</p>
+                    <p class="auth-subtitle mb-2" style="font-size: 15px">Sistem Informasi Surat Masuk Surat Keluar</p>
 
                     @if (session()->has('loginError'))
                         <div class="alert alert-danger alert-dismissible fade show col-md-12" role="alert">
@@ -61,8 +71,8 @@
             </div>
             <div class="col-lg-6 d-none d-lg-block">
                 <div id="auth-right">
-                    <div class="gambar">
-                        <img class="img-fluid" style="height: 37.2rem" src="assets/images/bg/purwo.jpeg" alt="">
+                    <div class="gambar rotate img">
+                        <img class="img-fluid" style="height: 37.2rem" src="assets/images/logo/pemkab.jpg" alt="">
                     </div>
                 </div>
             </div>

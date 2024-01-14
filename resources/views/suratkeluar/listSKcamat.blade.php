@@ -48,19 +48,19 @@
                                                 <td>{{ $s->perihal }}</td>
                                                 <td>
                                                     @if ($s->role == 1)
-                                                        Sedang diproses Sekretaris Camat
+                                                        Sedang diproses Sekretaris
                                                     @elseif ($s->role == 2)
                                                         Menunggu tindakan Operator
                                                     @elseif ($s->role == 3)
-                                                        Surat Keluar tidak disetujui oleh Sekretaris Camat
+                                                        Surat Keluar tidak disetujui oleh Sekretaris
                                                     @elseif ($s->role == 4)
-                                                        Sedang diproses Camat
+                                                        Sedang diproses Kabag
                                                     @elseif ($s->role == 5)
-                                                        Surat Keluar disetujui oleh Camat
+                                                        Surat Keluar disetujui oleh Kabag
                                                     @elseif ($s->role == 6)
-                                                        Surat Keluar tidak disetujui oleh Camat
+                                                        Surat Keluar tidak disetujui oleh Kabag
                                                     @elseif ($s->role == 7)
-                                                        Surat Keluar didisposisikan Camat ke Operator
+                                                        Surat Keluar didisposisikan Kabag ke Operator
                                                     @endif
                                                 </td>
                                                 <td style="text-align: center;">
@@ -150,18 +150,18 @@
                                                                             @if ($s->validasisekcam == 1)
                                                                                 @if ($s->validasicamat)
                                                                                     @if ($s->validasicamat == 1)
-                                                                                        Disetujui oleh Camat
+                                                                                        Disetujui oleh Kabag
                                                                                     @else
-                                                                                        Tidak disetujui oleh Camat
+                                                                                        Tidak disetujui oleh Kabag
                                                                                     @endif
                                                                                 @else
-                                                                                    Disetujui oleh Sekretaris Camat
+                                                                                    Disetujui oleh Sekretaris
                                                                                 @endif
                                                                             @else
-                                                                                Tidak disetujui oleh Sekretaris Camat
+                                                                                Tidak disetujui oleh Sekretaris
                                                                             @endif
                                                                         @else
-                                                                            Menunggu persetujuan Sekretaris Camat
+                                                                            Menunggu persetujuan Sekretaris
                                                                         @endif
                                                                     </div>
 
@@ -177,10 +177,10 @@
                                                                     </div>
 
                                                                     <code class="mt-2" style="font-size: 17px">#Tindakan
-                                                                        Sekretaris Camat</code>
+                                                                        Sekretaris</code>
 
                                                                     <div class="col-4">
-                                                                        Tanggal Tindakan SekCam
+                                                                        Tanggal Tindakan Sekretaris
                                                                     </div>
                                                                     <div class="col-8">
                                                                         @if ($s->tglsekcam)
@@ -190,7 +190,7 @@
                                                                         @endif
                                                                     </div>
                                                                     <div class="col-4">
-                                                                        Catatan Sekretaris Camat
+                                                                        Catatan Sekretaris
                                                                     </div>
                                                                     <div class="col-8">
                                                                         @if ($s->catsekcam)
@@ -201,10 +201,10 @@
                                                                     </div>
 
                                                                     <code class="mt-2" style="font-size: 17px">#Tindakan
-                                                                        Camat</code>
+                                                                        Kabag</code>
 
                                                                     <div class="col-4">
-                                                                        Tanggal Tindakan Camat
+                                                                        Tanggal Tindakan Kabag
                                                                     </div>
                                                                     <div class="col-8">
                                                                         @if ($s->tglcamat)
@@ -214,7 +214,7 @@
                                                                         @endif
                                                                     </div>
                                                                     <div class="col-4">
-                                                                        Catatan Camat
+                                                                        Catatan Kabag
                                                                     </div>
                                                                     <div class="col-8">
                                                                         @if ($s->catcamat)
@@ -256,7 +256,9 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>2023 &copy; Sistem Aplikasi Administrasi Perkantoran</p>
+                    <p>{{ date("Y") }} &copy;
+                        <a href="https://wilianto11.github.io/wilianto.github.io/">WILIANTO</a>
+                    </p>
                 </div>
             </div>
         </footer>

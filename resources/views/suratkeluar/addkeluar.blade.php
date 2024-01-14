@@ -48,7 +48,7 @@
                                                     <div class="form-group position-relative has-icon-left">
                                                         <input type="text" class="form-control form-control-lg"
                                                             placeholder="Masukkan No Surat" name="noinstansi"
-                                                            value="{{ 105,old('noinstansi') }}" autofocus required>
+                                                            value="{{ old('noinstansi') }}" autofocus required>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-bullseye"></i>
                                                         </div>
@@ -59,7 +59,7 @@
                                                     <div class="form-group position-relative has-icon-left">
                                                         <input type="text" class="form-control form-control-lg"
                                                             placeholder="Masukkan No Surat" name="notahun"
-                                                            value="{{ now()->year,old('notahun') }}" autofocus required>
+                                                            value="{{ now()->year.old('notahun') }}" autofocus required>
                                                         <div class="form-control-icon">
                                                             <i class="bi bi-bullseye"></i>
                                                         </div>
@@ -154,7 +154,9 @@
         <footer>
             <div class="footer clearfix mb-0 text-muted">
                 <div class="float-start">
-                    <p>2023 &copy; Sistem Aplikasi Administrasi Perkantoran</p>
+                    <p>{{ date("Y") }} &copy;
+                        <a href="https://wilianto11.github.io/wilianto.github.io/">WILIANTO</a>
+                    </p>
                 </div>
             </div>
         </footer>
