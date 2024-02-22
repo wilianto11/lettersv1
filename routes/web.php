@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/tambahpegawai', [DashboardController::class, 'addpegawai'])->middleware('admin');
 Route::post('/tambahpegawai', [DashboardController::class, 'postpegawai'])->middleware('admin');
+Route::delete('/dashboard/{id}/delete',[DashboardController::class,'deletepegawai'])->middleware('admin');
 
 Route::get('/', [AuthentikasiController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthentikasiController::class, 'postlogin'])->middleware('guest');

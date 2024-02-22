@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use DB;
+use Redirect;
 
 class DashboardController extends Controller
 {
@@ -28,5 +30,14 @@ class DashboardController extends Controller
         $validatedData["password"] = bcrypt('bekasi2024');
         $pegawai = User::create($validatedData);
         return back()->with('success', "Pegawai baru berhasil ditambahkan");
+    }
+
+    public function deletepegawai($id){
+        $delete = DB::table('users')->where('id',$id)->delete();
+        if($delete){
+            return Redirect::back()->with('success','Berhasil Di Hapus');
+        }else{
+            return Redirect::back()->with(['error'=>'Gagal Di Hapus']);
+        }
     }
 }

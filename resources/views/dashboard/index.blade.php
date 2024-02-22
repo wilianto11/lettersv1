@@ -36,6 +36,7 @@
                                                 <th>NIP</th>
                                                 <th>Jabatan</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -51,6 +52,13 @@
                                                             <span class="badge bg-success">Tidak Aktif</span>
                                                         @endif
                                                     </td>
+                                                    <td><form action="/dashboard/{{ $peg->id }}/delete" method="DELETE" >
+                                                        @csrf
+
+                                                        <a class="button badge bg-danger"
+                                                        ><i
+                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                    </form></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
