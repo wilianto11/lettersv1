@@ -27,6 +27,28 @@
                                 Surat Masuk
                             </div>
                             <div class="card-body">
+                                <form action="/print" method="post">
+                                    @csrf
+                                    <div class="row">
+                                            <div class="col-md-3 form-group" style="margin-top:25px;">
+                                                <select name="tahun" id="tahun" class="form-select">
+                                                    <option value="">Tahun</option>
+                                                    @php
+                                                        $startYear = 2022;
+                                                        $endYear = date('Y');
+                                                    @endphp
+                                                    @for ($tahun = $startYear; $tahun <= $endYear; $tahun++)
+                                                        <option value="{{ $tahun }}"
+                                                            {{ date('Y') == $tahun ? 'selected' : '' }}>{{ $tahun }}
+                                                        </option>
+                                                    @endfor
+                                                </select>
+                                            </div>
+                                        <div class="col-md-2 form-group" style="margin-top:25px;">
+                                           <input type="submit" class="btn btn-primary" value="Print">
+                                        </div>
+                                    </div>
+                               </form>
                                 <table class="table table-striped" id="table1">
                                     <thead>
                                         <tr>

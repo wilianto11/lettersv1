@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Redirect;
 use App\Models\User;
 use Illuminate\Http\Request;
-use DB;
-use Redirect;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -32,12 +32,12 @@ class DashboardController extends Controller
         return back()->with('success', "Pegawai baru berhasil ditambahkan");
     }
 
-    public function deletepegawai($id){
+    public function deletepegawai( $id){
         $delete = DB::table('users')->where('id',$id)->delete();
         if($delete){
-            return Redirect::back()->with('success','Berhasil Di Hapus');
+            return back()->with('success', "Pegawai berhasil di hapus");
         }else{
-            return Redirect::back()->with(['error'=>'Gagal Di Hapus']);
+            return back()->with('error', "Pegawai Gagal di hapus");
         }
     }
 }

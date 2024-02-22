@@ -23,6 +23,7 @@
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/vendors/summernote/summernote-lite.min.css">
     <!-- Masukkan CSS Select2 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 </head>
 
@@ -294,6 +295,7 @@
     <script src="assets/js/pages/dashboard.js"></script>
     <script src="assets/js/main.js"></script>
     @yield('js')
+
 </body>
 
 </html>

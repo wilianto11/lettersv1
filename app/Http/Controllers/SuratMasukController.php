@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\DetailSM;
 use App\Models\SuratMasuk;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreSuratMasukRequest;
 use App\Http\Requests\UpdateSuratMasukRequest;
-use App\Models\DetailSM;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
 class SuratMasukController extends Controller
 {
@@ -34,6 +35,7 @@ class SuratMasukController extends Controller
             "sm" => SuratMasuk::orderBy('created_at', 'desc')->get()
         ]);
     }
+
 
     public function create()
     {
@@ -138,5 +140,18 @@ class SuratMasukController extends Controller
             $dsm->update($validatedData);
         }
         return back()->with('success', "Perubahan berhasil disimpan");
+    }
+
+    public function print(Request $request)
+    {
+        $tahun = $request->tahun;
+        $suratmasuk = DB::table('surat_masuks')
+        ->join('detail_s_m_s','surat_masuks.id','=','detail_s_m_s.id')
+        ->join('users','detail_s_m_s.kasi','=','users.id')
+        ->whereRaw('YEAR(tglditerima)="' . $tahun . '"')
+        ->orderBy('nosurat','asc')
+        ->get();
+        //dd($pegawai);
+        return view('suratmasuk.print', compact('suratmasuk','tahun'));
     }
 }

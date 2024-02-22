@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/tambahpegawai', [DashboardController::class, 'addpegawai'])->middleware('admin');
 Route::post('/tambahpegawai', [DashboardController::class, 'postpegawai'])->middleware('admin');
-Route::delete('/dashboard/{id}/delete',[DashboardController::class,'deletepegawai'])->middleware('admin');
+Route::post('/dashboard/{id}/delete',[DashboardController::class,'deletepegawai'])->middleware('admin');
 
 Route::get('/', [AuthentikasiController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthentikasiController::class, 'postlogin'])->middleware('guest');
@@ -29,6 +29,9 @@ Route::post('/logout', [AuthentikasiController::class, 'logout'])->middleware('a
 Route::get('/tambahsuratmasuk', [SuratMasukController::class, 'create'])->middleware('operator');
 Route::get('/suratmasuk', [SuratMasukController::class, 'index'])->middleware('kasikasubag');
 Route::get('/datasuratmasuk', [SuratMasukController::class, 'list'])->middleware('operator');
+//print
+Route::post('/print',[SuratMasukController::class, 'print'])->middleware('operator');
+
 Route::get('/validasisuratmasuk', [SuratMasukController::class, 'SMcamat'])->middleware('camat');
 Route::get('/suratmasuksekcam', [SuratMasukController::class, 'SMsekcam'])->middleware('sekcam');
 Route::get('/daftarsuratmasuk', [SuratMasukController::class, 'listSMcamat'])->middleware('camat');

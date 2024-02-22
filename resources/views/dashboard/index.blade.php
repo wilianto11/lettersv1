@@ -24,6 +24,12 @@
                     {{-- tampilan untuk admin --}}
                     @can('admin')
                         <section class="section">
+                            @if (session()->has('success'))
+                            <div class="alert alert-success alert-dismissible show fade">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
                             <div class="card">
                                 <div class="card-header">
                                     Data Pegawai
@@ -52,12 +58,10 @@
                                                             <span class="badge bg-success">Tidak Aktif</span>
                                                         @endif
                                                     </td>
-                                                    <td><form action="/dashboard/{{ $peg->id }}/delete" method="DELETE" >
+                                                    <td><form method="post" action="/dashboard/{{ $peg->id }}/delete">
+                                                        @method('post')
                                                         @csrf
-
-                                                        <a class="button badge bg-danger"
-                                                        ><i
-                                                            class="bx bx-trash me-1"></i> Delete</a>
+                                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                                     </form></td>
                                                 </tr>
                                             @endforeach
@@ -92,3 +96,5 @@
 
     <script src="assets/js/main.js"></script>
 @endsection
+
+
